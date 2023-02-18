@@ -1,12 +1,18 @@
 import React from "react";
-import "./App.css";
-import { BaseForm, DataTable, FormInput } from "nanoit-react-components";
+import { BaseForm, DataTable, FormInput } from "nanoit-react-modules";
 import { useForm } from "react-hook-form";
+import API from "./api";
 
 function App() {
   const form = useForm();
-  const submit = (data: any) => {
+  const submit = async (data: any) => {
     console.log(data);
+     const response = await API.auth().login({
+         "password": "1s2ASD3d4@5678",
+         "email": "test@domain.com"
+     })
+
+      console.log(response)
   };
   return (
     <div className="App">
